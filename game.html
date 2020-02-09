@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Zombie Rush</title>
+    <!-- <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"> -->
+    <!-- <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"> -->
+    <link href="meyer.reset.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="js.cookie.min.js"></script>
+    <script src="characters.js"></script>
+    <script src="init.js"></script>
+    <script>
+    $(function(){
+
+    });
+    </script>
+    <style>
+    body {
+      align-items: center;
+      display: flex;
+      flex-flow: row;
+      font-family: 'Shadows Into Light', cursive;
+      height: 100vh;
+      width: 100vw;
+    }
+    coinstat {
+      background-color: rgba(0,0,0,0.92);
+      border-radius: 0 48px 48px 0;
+      color: #ffffff;
+      font-size: 20px;
+      left: 0;
+      padding: 20px;
+      position: absolute;
+      top: 10px;
+    }
+    dashboard {
+      background-color: rgba(0,0,0,0.2);
+      color: #ffffff;
+      font-family: sans-serif;
+      padding: 20px;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 300px;
+    }
+    gameover {
+      background-color: rgba(255,0,0,.5);
+      bottom: 0;
+      display: none;
+      flex-flow: column;
+      position: absolute;
+      top: 0;
+      z-index: 99;
+    }
+      gameover > div {
+        align-self: center;
+        display: flex;
+        flex: 1;
+      }
+        gameover > div > div {
+          align-self: center;
+          display: flex;
+          flex-flow: column;
+        }
+        gameover > div > div > go-message {
+          align-self: center;
+          animation-duration: 3s;
+          animation-iteration-count: 1;
+          animation-name: zoom;
+          color: #ffffff;
+          flex: 1;
+          font-family: 'Shadows Into Light', cursive;
+          font-size: 100px;
+          text-align: center;
+        }
+        gameover > div > div > go-coins {
+          align-self: center;
+          color: #ffffff;
+          flex: 1;
+          font-family: 'Shadows Into Light', cursive;
+          font-size: 32px;
+          text-align: center;
+        }
+    ground {
+      /* background-image: linear-gradient(-180deg, #57ACA7 0%, #0B8958 100%); */
+      background-color: #416356;
+      bottom: 0;
+      height: 0;
+      position: absolute;
+      width: inherit;
+      z-index: 1;
+    }
+    jump {
+      cursor: default;
+      flex: 1;
+      font-size: 24px;
+      text-align: center;
+      user-select: none;
+    }
+    player {
+      background: transparent url('player.png') center/100% 100% no-repeat;
+      position: absolute;
+      z-index: 3;
+    }
+    screen {
+      align-items: center;
+      display: flex;
+      flex: 1;
+    }
+    touch {
+      align-items: center;
+      background-color: rgba(255,255,255,0.3);
+      border-radius: 66px;
+      bottom: 24px;
+      display: flex;
+      height: 132px;
+      position: absolute;
+      right: 24px;
+      width: 132px;
+      z-index: 99;
+    }
+    world {
+      /* background: transparent url('world-of-cannons.jpeg') center 0/cover no-repeat; */
+      /* background-image: linear-gradient(-180deg, #9ED7F1 0%, #499EC6 100%); */
+      background-color: #C1D7E0;
+      display: flex;
+      flex: 1;
+    }
+    zombie {
+      background: transparent url('zombie.png') center/100% 100% no-repeat;
+      /* bottom: 33vh;
+      height: 142px; */
+      position: absolute;
+      /* width: 102px; */
+      z-index: 2;
+    }
+    @keyframes zoom {
+      from {font-size: 50px;}
+      to {font-size: 100px;}
+    }
+    @keyframes redden {
+      from {background-color: rgba(0,0,0,0.5);}
+      to {background-color: rgba(255,0,0,0.5);}
+    }
+    </style>
+  </head>
+  <body>
+    <screen>
+      <dashboard>
+        <ul>
+          <li>player air: <span id="data-playerAir"></span></li>
+          <li>player x-position: <span id="data-playerX"></span></li>
+          <li>zombie x-position: <span id="data-zombieX"></span></li>
+          <li>zombie speed: <span id="data-zombieSpeed"></span></li>
+        </ul>
+      </dashboard>
+      <coinstat>Coins: <span id="data-coins">0</span></coinstat>
+      <world>
+        <ground>
+          <player></player>
+        </ground>
+        <coins></coins>
+        <gameover>
+          <div>
+            <div>
+              <go-message>INFECTED!</go-message>
+              <go-coins></go-coins>
+            </div>
+          </div>
+        </gameover>
+      </world>
+      <touch>
+        <jump>Jump</jump>
+      </touch>
+    </screen>
+  </body>
+</html>
