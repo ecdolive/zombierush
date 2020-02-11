@@ -8,19 +8,12 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Zombie Rush</title>
-    <!-- <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"> -->
-    <!-- <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"> -->
     <link href="meyer.reset.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <script src="jquery-3.2.1.min.js"></script>
     <script src="js.cookie.min.js"></script>
     <script src="characters.js"></script>
     <script src="init.js"></script>
-    <script>
-    $(function(){
-
-    });
-    </script>
     <style>
     body {
       align-items: center;
@@ -89,7 +82,6 @@
           text-align: center;
         }
     ground {
-      /* background-image: linear-gradient(-180deg, #57ACA7 0%, #0B8958 100%); */
       background-color: #416356;
       bottom: 0;
       height: 0;
@@ -127,18 +119,13 @@
       z-index: 99;
     }
     world {
-      /* background: transparent url('world-of-cannons.jpeg') center 0/cover no-repeat; */
-      /* background-image: linear-gradient(-180deg, #9ED7F1 0%, #499EC6 100%); */
       background-color: #C1D7E0;
       display: flex;
       flex: 1;
     }
     zombie {
       background: transparent url('zombie.png') center/100% 100% no-repeat;
-      /* bottom: 33vh;
-      height: 142px; */
       position: absolute;
-      /* width: 102px; */
       z-index: 2;
     }
     @keyframes zoom {
