@@ -191,20 +191,16 @@ function collision(){
     hasCollided = true;
     console.log('infected!');
     $('gameover').css({
-      'animation-duration': '3s',
-      'animation-iteration-count': 1,
-      'animation-name': 'redden',
+      'animation': '6s cubic-bezier(0.455, 0.03, 0.515, 0.955) 1 redden', // easeInOutQuad
       'display': 'flex',
       'height': r.view.h,
       'width': r.view.w
     });
     $('gameover > div > div > go-message').css({
-      'animation-duration': '3s',
-      'animation-iteration-count': 1,
-      'animation-name': 'zoom'
+      'animation': '6s cubic-bezier(0.165, 0.84, 0.44, 1) 1 zoom' // easeOutQuart
     });
   }
   setTimeout(function(){
     window.location = "index.html";
-  }, 5005);
+  }, 6000);
 }
