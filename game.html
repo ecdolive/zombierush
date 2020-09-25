@@ -15,6 +15,13 @@
     <script src="js.cookie.min.js"></script>
     <script src="characters.js"></script>
     <script src="init.js"></script>
+    <script>
+      $(function(){
+        $('#skip').click(function(){
+          window.location = "index.html";
+        });
+      });
+    </script>
     <style>
     body {
       align-items: center;
@@ -23,6 +30,37 @@
       font-family: 'Shadows Into Light', cursive;
       height: 100vh;
       width: 100vw;
+    }
+    button {
+      animation: float 3s cubic-bezier(0.545, 0.0475, 0.4525, 0.975) alternate-reverse infinite;
+      background-color: rgba(255,255,255,1);
+      border: 0;
+      border-radius: 72px;
+      cursor: pointer;
+      flex: 1;
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 32px;
+      margin-top: 40px;
+      padding: 0 48px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      user-select: none;
+    }
+    button:hover {
+      animation: spasm 300ms linear infinite;
+      background-color: rgba(255,59,89,0.5);
+    }
+    @keyframes float {
+      0% {transform: rotate(-3deg);}
+      100% {transform: rotate(3deg);}
+    }
+    @keyframes spasm {
+      0% {transform: rotate(0deg);}
+      20% {transform: rotate(3deg);}
+      40% {transform: rotate(-2deg);}
+      60% {transform: rotate(2deg);}
+      80% {transform: rotate(-3deg);}
+      100% {transform: rotate(1deg);}
     }
     coinstat {
       background-color: rgba(0,0,0,0.92);
@@ -73,6 +111,7 @@
           font-family: 'Shadows Into Light', cursive;
           font-size: 100px;
           text-align: center;
+          text-transform: uppercase;
         }
         gameover > div > div > go-coins {
           align-self: center;
@@ -81,6 +120,11 @@
           font-family: 'Shadows Into Light', cursive;
           font-size: 32px;
           text-align: center;
+        }
+        gameover > div > div > go-skip {
+          align-items: center;
+          flex-flow: column;
+          display: flex;
         }
     ground {
       background-color: #416356;
@@ -162,8 +206,9 @@
         <gameover>
           <div>
             <div>
-              <go-message>INFECTED!</go-message>
+              <go-message>Infected!</go-message>
               <go-coins></go-coins>
+              <go-skip><button id="skip">Skip Animation</button></go-skip>
             </div>
           </div>
         </gameover>
